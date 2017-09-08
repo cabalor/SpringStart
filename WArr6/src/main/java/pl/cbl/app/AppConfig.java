@@ -1,23 +1,19 @@
 package pl.cbl.app;
 
 import javax.persistence.EntityManagerFactory;
-import javax.validation.Validator;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-
 
 @Configuration
 @EnableWebMvc
@@ -51,26 +47,25 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 		return tm;
 	}
 
-	/*@Override
-	public void addFormatters(FormatterRegistry registry) {
-		registry.addConverter(getPublisherConverter());
-	
-
-	}
-
-	@Bean
-	public pl.cbl.converter.PublisherConverter getPublisherConverter() {
-
-		return new pl.cbl.converter.PublisherConverter();
-
-	}
-
-	
-	@Bean
-	public Validator validator() {
-
-		return new LocalValidatorFactoryBean();
-
-	}*/
+	/*
+	 * @Override public void addFormatters(FormatterRegistry registry) {
+	 * registry.addConverter(getPublisherConverter());
+	 * 
+	 * 
+	 * }
+	 * 
+	 * @Bean public pl.cbl.converter.PublisherConverter getPublisherConverter() {
+	 * 
+	 * return new pl.cbl.converter.PublisherConverter();
+	 * 
+	 * }
+	 * 
+	 * 
+	 * @Bean public Validator validator() {
+	 * 
+	 * return new LocalValidatorFactoryBean();
+	 * 
+	 * }
+	 */
 
 }
