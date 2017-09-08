@@ -4,13 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+
 import org.mindrot.jbcrypt.BCrypt;
 
 
 @Entity
+@Table(name = "users")
 public class User {
 
 	
@@ -18,13 +21,14 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	@NotBlank
+	
 	private String username;
-	@NotBlank
+	
 	private String password;
+	@NotBlank
 	@Email
 	private	String email;
-	private	boolean enable;
+	//private	boolean enable;
 	
 	
 	public long getId() {
@@ -51,18 +55,26 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public boolean isEnable() {
+	/*public boolean isEnable() {
 		return enable;
 	}
 	public void setEnable(boolean enable) {
 		this.enable = enable;
-	}
+	}*/
 	
 	public boolean isPasswordCorrect(String password) {
 		return BCrypt.checkpw(password, this.password);
 	}
 	
 	public User() {}
+	public User( String username, String password, String email) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
+	
+	
 	
 	
 }

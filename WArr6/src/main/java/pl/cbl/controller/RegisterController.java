@@ -21,25 +21,26 @@ public class RegisterController {
 	@Autowired
 	private UserDao userDao;
 	
-	@Autowired
-	private UserRepository userRep;
+	//@Autowired
+	//private UserRepository userRep;
 	
 	
 	@GetMapping("")
 	public String home(Model m) {
-		
-		m.addAttribute("user", new User());
-		
+		/*User u = new User();
+		u.setEnable(false);*/
+		User user = new User();
+		m.addAttribute("user", user);
 		return "register";
 	}
 	
 	@PostMapping("")
-	public String home2(@Valid User user, BindingResult resoult) {
-		if(resoult.hasErrors()) {
+	public String home2(User user /*,BindingResult resoult*/) {
+		/*if(resoult.hasErrors()) {
 			return "register";
-		}
+		}*/
 		userDao.add(user);
-		//userRep.save(user);    second add with repository
+		//userRep.save(user);    //second add with repository
 		return "redirect:/home";
 	}
 	
