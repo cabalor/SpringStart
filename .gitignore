@@ -1,3 +1,8 @@
+.settings/
+.claspath
+.project
+
+
 # Compiled class file
 *.class
 
